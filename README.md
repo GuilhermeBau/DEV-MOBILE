@@ -1,17 +1,36 @@
-# React + Vite
+# Todo App - React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicativo de lista de tarefas desenvolvido com React e Vite, containerizado com Docker e publicado automaticamente no Docker Hub via GitHub Actions.
 
-Currently, two official plugins are available:
+## Tecnologias utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19
+- Vite
+- Docker (Multi-stage Build com NGINX)
+- GitHub Actions (CI/CD)
 
-## React Compiler
+## Como rodar localmente
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+## Como rodar com Docker
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-"# DEV-MOBILE" 
+```bash
+docker pull guilhermebau/todo-app:latest
+docker run -d -p 8080:80 guilhermebau/todo-app:latest
+```
+
+Acesse em: http://localhost:8080
+
+## Pipeline CI/CD
+
+A cada push na branch `main`, o GitHub Actions automaticamente:
+1. Faz o build da imagem Docker
+2. Publica a imagem no Docker Hub
+
+## Imagem no Docker Hub
+
+[guilhermebau/todo-app](https://hub.docker.com/r/guilhermebau/todo-app)
