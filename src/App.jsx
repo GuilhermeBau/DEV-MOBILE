@@ -12,7 +12,7 @@ export default function App() {
   const [tarefas, setTarefas] = useState([
     { id: 1, texto: "Estudar React", feita: false }
   ]);
-  
+
   const [textoInput, setTextoInput] = useState("");
 
   function adicionar() {
@@ -53,12 +53,12 @@ export default function App() {
       <h1 style={{ color: "#646cff", borderBottom: "2px solid #646cff", paddingBottom: "0.5rem" }}>
         Lista TO DO 🚀
       </h1>
-      
+
       <div>
-        <input 
-          type="text" 
-          value={textoInput} 
-          onChange={(e) => setTextoInput(e.target.value)} 
+        <input
+          type="text"
+          value={textoInput}
+          onChange={(e) => setTextoInput(e.target.value)}
         />
         <Botao onClick={adicionar}>Adicionar</Botao>
       </div>
@@ -68,13 +68,13 @@ export default function App() {
       <ul>
         {tarefas.map((tarefa) => (
           <li key={tarefa.id}>
-            
-            <input 
-              type="checkbox" 
+
+            <input
+              type="checkbox"
               checked={tarefa.feita}
               onChange={() => marcarFeita(tarefa.id)}
             />
-            
+
             {tarefa.feita ? (
               <strike>{tarefa.texto}</strike>
             ) : (
@@ -83,7 +83,7 @@ export default function App() {
 
             {" "}
             <Botao onClick={() => deletar(tarefa.id)}>🗑️</Botao>
-            
+
           </li>
         ))}
       </ul>
